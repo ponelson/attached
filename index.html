@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Attachment Styles v3.0 &mdash; Intimacy, Family &amp; Core Patterns</title>
+<meta name="description" content="An interactive reference to attachment styles as patterns that become legible when intimacy begins to feel like family." />
+<meta name="theme-color" content="#f5f5f7" id="themeColorMeta" />
+<meta name="color-scheme" content="light dark" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Attachment Styles v3.0 &mdash; Intimacy, Family &amp; Core Patterns" />
+<meta property="og:description" content="An interactive reference to attachment styles as patterns that become legible when intimacy begins to feel like family." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%230071e3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================================
+   TOKENS — the ONLY place literal colors are allowed in this file.
+   Every rule below this block references var(--…). No exceptions.
+   Light and dark are declared as matched pairs so nothing can go
+   white-on-white or black-on-black when the theme flips.
+   ========================================================================= */
+:root{
+  color-scheme:light;
+  /* page + surfaces */
+  --bg:#f5f5f7;
+  --bg-grad-1:rgba(234,243,255,.85);
+  --bg-grad-2:rgba(255,240,223,.75);
+  --bg-grad-3:#fbfbfd;
+  --bg-grad-4:#eff2f6;
+  --surface:#ffffff;
+  --surface-2:#f0f0f3;
+  --surface-3:#f1f3f5;
+  --glass:rgba(255,255,255,.72);
+  --glass-2:rgba(255,255,255,.60);
+  --glass-border:rgba(255,255,255,.72);
+  --nav-bg:rgba(245,245,247,.90);
+  /* text */
+  --ink:#111114;
+  --ink-2:#3a3f4c;
+  --ink-3:#4a505c;
+  --ink-dim:#6b6f7b;
+  --ink-strong:#000000;
+  /* lines */
+  --line:rgba(0,0,0,.09);
+  --line-2:rgba(0,0,0,.16);
+  --line-solid:#e3e3e8;
+  --line-strong:#d2d2d7;
+  /* accents */
+  --blue:#0071e3;      --blue-ink:#0057b8;    --blue-soft:#e9f3ff;
+  --green:#1f8f4e;     --green-ink:#0f6a36;   --green-soft:#e9f7ee;
+  --orange:#b65f00;    --orange-ink:#8a4800;  --orange-soft:#fff1df;
+  --purple:#6b47d6;    --purple-ink:#4d32a3;  --purple-soft:#f0edff;
+  --red:#bd2b28;       --red-ink:#a52320;     --red-soft:#fdeceb;
+  --on-accent:#ffffff;
+  /* inverted panel — the deliberately high-contrast block.
+     Dark in light mode; a LIFTED panel in dark mode so it never vanishes. */
+  --invert-bg:#141417;
+  --invert-ink:#f5f5f7;
+  --invert-ink-2:#c9ccd3;
+  --invert-line:#2a2a30;
+  /* code */
+  --code-bg:#141417;   --code-ink:#e6e8ee;    --code-line:#2a2a30;
+  --code-c:#7f8798; --code-k:#6fb2ff; --code-g:#63d193; --code-r:#ff7b72; --code-y:#ffc46b;
+  --code-light-bg:#f1f2f4; --code-light-ink:#1c1f26;
+  /* callouts */
+  --note-bg:rgba(0,113,227,.05);   --note-line:rgba(0,113,227,.20);
+  --warn-bg:#fff7e8;               --warn-line:#f2d6a7;  --warn-ink:#5c3b00;
+  /* chrome */
+  --strip-bg:#111114;  --strip-ink:#ffffff;
+  --strip-btn:rgba(255,255,255,.10); --strip-btn-hover:rgba(255,255,255,.20);
+  --strip-line:rgba(255,255,255,.20);
+  --pill-bg:rgba(255,255,255,.68);  --pill-ink:#252934;
+  --pill-on-bg:#111114;             --pill-on-ink:#ffffff;
+  --shadow:0 18px 60px rgba(0,0,0,.10);
+  --shadow-2:0 8px 28px rgba(0,0,0,.08);
+  --shadow-hover:0 16px 50px rgba(0,0,0,.11);
+  --orb-opacity:.72;
+  --gradtext:linear-gradient(102deg,#17191d 0%,#465365 48%,#0874dc 86%,#0068c9 100%);
+  --gradtext-fallback:#34475f;
+  /* type + geometry */
+  --serif:'Source Serif 4', ui-serif, Georgia, serif;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', Segoe UI, sans-serif;
+  --mono:'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --radius:28px; --radius-2:18px;
+}
+
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d0d10;
+  --bg-grad-1:rgba(23,42,71,.55);
+  --bg-grad-2:rgba(58,40,20,.45);
+  --bg-grad-3:#101015;
+  --bg-grad-4:#0a0a0d;
+  --surface:#17171c;
+  --surface-2:#1d1d23;
+  --surface-3:#22222a;
+  --glass:rgba(30,30,37,.72);
+  --glass-2:rgba(30,30,37,.60);
+  --glass-border:rgba(255,255,255,.10);
+  --nav-bg:rgba(16,16,20,.90);
+  --ink:#f2f2f5;
+  --ink-2:#c3c7d1;
+  --ink-3:#adb2bd;
+  --ink-dim:#9096a3;
+  --ink-strong:#ffffff;
+  --line:rgba(255,255,255,.12);
+  --line-2:rgba(255,255,255,.20);
+  --line-solid:#2b2b33;
+  --line-strong:#3a3a44;
+  --blue:#4da3ff;      --blue-ink:#8cc3ff;    --blue-soft:rgba(77,163,255,.16);
+  --green:#4bc47d;     --green-ink:#7fd9a2;   --green-soft:rgba(75,196,125,.16);
+  --orange:#f0a23c;    --orange-ink:#f5bd72;  --orange-soft:rgba(240,162,60,.16);
+  --purple:#a78bfa;    --purple-ink:#c4b1ff;  --purple-soft:rgba(167,139,250,.18);
+  --red:#f0736e;       --red-ink:#f79b97;     --red-soft:rgba(240,115,110,.16);
+  --on-accent:#0d0d10;
+  --invert-bg:#22222b;
+  --invert-ink:#f5f5f7;
+  --invert-ink-2:#c9ccd3;
+  --invert-line:#3d3d49;
+  --code-bg:#101014;   --code-ink:#e6e8ee;    --code-line:#2f2f3a;
+  --code-light-bg:#1b1b21; --code-light-ink:#dfe2e9;
+  --note-bg:rgba(77,163,255,.10);  --note-line:rgba(77,163,255,.30);
+  --warn-bg:rgba(240,162,60,.12);  --warn-line:rgba(240,162,60,.34); --warn-ink:#f3cd95;
+  --strip-bg:#000000;  --strip-ink:#f2f2f5;
+  --strip-btn:rgba(255,255,255,.10); --strip-btn-hover:rgba(255,255,255,.22);
+  --strip-line:rgba(255,255,255,.22);
+  --pill-bg:rgba(255,255,255,.07);  --pill-ink:#dcdfe7;
+  --pill-on-bg:#f2f2f5;             --pill-on-ink:#0d0d10;
+  --shadow:0 18px 60px rgba(0,0,0,.55);
+  --shadow-2:0 8px 28px rgba(0,0,0,.45);
+  --shadow-hover:0 16px 50px rgba(0,0,0,.60);
+  --orb-opacity:.30;
+  --gradtext:linear-gradient(102deg,#ffffff 0%,#cdd8e8 48%,#6fb2ff 86%,#4da3ff 100%);
+  --gradtext-fallback:#cfe0f5;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ============================ base ============================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 15% 0%, var(--bg-grad-1) 0, transparent 38%),
+    radial-gradient(circle at 80% 8%, var(--bg-grad-2) 0, transparent 32%),
+    linear-gradient(180deg, var(--bg-grad-3) 0, var(--bg) 45%, var(--bg-grad-4) 100%);
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.45;
+  transition:background-color .2s ease, color .2s ease;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1460px;margin:0 auto;padding:0 26px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
+.vlabel{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono{font-family:var(--mono)}
+
+/* ============================ topbar ============================ */
+.topbar{position:sticky;top:0;z-index:60}
+.contact-strip{background:var(--strip-bg);color:var(--strip-ink);border-bottom:1px solid var(--strip-line)}
+.contact-strip-inner{max-width:1460px;margin:0 auto;padding:8px 26px;display:flex;justify-content:flex-end;align-items:center;gap:8px}
+.contact-link{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;border:1px solid var(--strip-line);background:var(--strip-btn);color:var(--strip-ink);font-size:12px;font-weight:700;letter-spacing:-.01em;transition:background .16s,transform .16s}
+.contact-link:hover{background:var(--strip-btn-hover);transform:translateY(-1px)}
+.contact-link svg{width:14px;height:14px;fill:currentColor;flex:0 0 auto}
+.themetoggle{display:inline-flex;align-items:center;gap:7px;margin-left:6px;padding:7px 11px;border-radius:999px;border:1px solid var(--strip-line);background:var(--strip-btn);color:var(--strip-ink);font-family:var(--sans);font-size:12px;font-weight:700;cursor:pointer;transition:background .16s,transform .16s}
+.themetoggle:hover{background:var(--strip-btn-hover);transform:translateY(-1px)}
+.themetoggle svg{width:14px;height:14px;fill:currentColor;flex:0 0 auto}
+html[data-theme="light"] .themetoggle .i-moon{display:block}
+html[data-theme="light"] .themetoggle .i-sun{display:none}
+html[data-theme="dark"]  .themetoggle .i-moon{display:none}
+html[data-theme="dark"]  .themetoggle .i-sun{display:block}
+
+.nav{background:var(--nav-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1460px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:13px 26px}
+.brand{font-weight:800;letter-spacing:-.03em;white-space:nowrap;color:var(--ink)}
+.brand span{font-family:var(--serif);font-weight:900}
+.brand .vtag{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--ink-dim);letter-spacing:.02em;margin-left:6px}
+.navlinks{display:flex;gap:6px;margin-left:auto;flex-wrap:nowrap;overflow-x:auto;min-width:0;padding-bottom:2px;scrollbar-width:thin}
+.navlinks a{flex:0 0 auto;white-space:nowrap;border:1px solid var(--line);background:var(--pill-bg);color:var(--pill-ink);padding:8px 12px;border-radius:999px;font-size:13px;cursor:pointer}
+.navlinks a.active{background:var(--pill-on-bg);color:var(--pill-on-ink);border-color:var(--pill-on-bg)}
+.menubtn{display:none;margin-left:auto;border:1px solid var(--line);background:var(--pill-bg);border-radius:12px;width:40px;height:36px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.menubtn i{display:block;width:16px;height:1.6px;background:var(--ink);border-radius:2px}
+.drawer{display:none;border-top:1px solid var(--line);background:var(--nav-bg);backdrop-filter:blur(18px);padding:12px 16px 16px}
+.drawer.open{display:block}
+.drawer a{display:block;padding:11px 4px;border-bottom:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink)}
+
+/* ============================ hero ============================ */
+.hero{min-height:78vh;display:flex;align-items:center;position:relative;isolation:isolate;overflow:hidden;padding:46px 0 26px}
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:-1;opacity:var(--orb-opacity);filter:blur(22px)}
+.orb.a{width:540px;height:540px;background:radial-gradient(circle at 36% 34%,var(--blue) 0 14%,transparent 72%);right:-155px;top:-118px}
+.orb.b{width:370px;height:370px;background:radial-gradient(circle at 58% 44%,var(--orange) 0 14%,transparent 72%);left:-142px;bottom:54px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px}
+.eyebrow b{color:var(--ink-2)}
+.h1{font-family:var(--serif);font-size:clamp(48px,7vw,104px);line-height:.92;letter-spacing:-.06em;margin:0 0 24px;color:var(--ink)}
+.h1 em{font-style:normal;background:var(--gradtext);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gradtext-fallback)}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.h1 em{background:none;-webkit-text-fill-color:currentColor;color:var(--gradtext-fallback)}}
+.lede{font-size:clamp(18px,2.1vw,25px);line-height:1.34;color:var(--ink-2);max-width:840px;margin:0 0 26px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.cta{background:var(--pill-on-bg);color:var(--pill-on-ink);border:1px solid var(--pill-on-bg);border-radius:999px;padding:13px 17px;font-weight:700;display:inline-flex;gap:9px;align-items:center;font-size:14.5px;cursor:pointer;font-family:var(--sans)}
+.cta.secondary{background:var(--glass);color:var(--ink);border:1px solid var(--line-2)}
+
+/* ============================ sections ============================ */
+.section{padding:70px 0;scroll-margin-top:124px}
+.section h2{font-family:var(--serif);font-size:clamp(36px,4.4vw,64px);line-height:.96;letter-spacing:-.05em;margin:0 0 14px;color:var(--ink)}
+.section h3.sub-h{font-family:var(--serif);font-size:28px;letter-spacing:-.04em;margin:40px 0 8px;font-weight:700;color:var(--ink)}
+.section .sub{font-size:18.5px;color:var(--ink-3);max-width:940px;margin:0 0 28px;line-height:1.5}
+.section p{color:var(--ink-3)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.rule{height:1px;background:var(--line);margin:0;border:0}
+
+/* ============================ components ============================ */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+.card{background:var(--glass);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:var(--shadow-2);transition:transform .18s ease,box-shadow .18s ease;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.card h3{margin:0 0 9px;font-size:19px;letter-spacing:-.035em;line-height:1.15;color:var(--ink)}
+.card p{margin:0;color:var(--ink-3);font-size:14px}
+.card ul{margin:10px 0 0;padding-left:17px;color:var(--ink-3);font-size:13.5px}
+.card li{margin:0 0 6px}
+
+.panel{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-2);padding:22px}
+.panel h3{margin:0 0 6px;font-size:21px;letter-spacing:-.035em;color:var(--ink)}
+.panel p,.panel li{color:var(--ink-3);font-size:14.5px}
+.panel ul,.panel ol{margin:12px 0 0;padding-left:18px}
+
+/* inverted panel: high-contrast in BOTH themes */
+.panel.invert,.plainbox{background:var(--invert-bg);border:1px solid var(--invert-line);color:var(--invert-ink);border-radius:24px;padding:26px 28px;box-shadow:var(--shadow)}
+.panel.invert h3,.plainbox h3{color:var(--invert-ink);font-family:var(--serif);font-size:24px;letter-spacing:-.035em;margin:0 0 10px}
+.panel.invert p,.panel.invert li,.plainbox p{color:var(--invert-ink-2);font-size:15.5px;line-height:1.6}
+
+.stat{padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-2)}
+.stat .n{font-family:var(--serif);font-size:40px;font-weight:900;letter-spacing:-.05em;line-height:.9;color:var(--ink)}
+.stat .t{font-size:12.5px;color:var(--ink-dim);margin-top:8px;line-height:1.4}
+
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.tag{font-family:var(--mono);font-size:11px;color:var(--ink-2);background:var(--surface-3);border:1px solid var(--line);border-radius:999px;padding:5px 8px;display:inline-block}
+.tag.blue{background:var(--blue-soft);color:var(--blue-ink);border-color:var(--blue-soft)}
+.tag.green{background:var(--green-soft);color:var(--green-ink);border-color:var(--green-soft)}
+.tag.orange{background:var(--orange-soft);color:var(--orange-ink);border-color:var(--orange-soft)}
+.tag.purple{background:var(--purple-soft);color:var(--purple-ink);border-color:var(--purple-soft)}
+.tag.red{background:var(--red-soft);color:var(--red-ink);border-color:var(--red-soft)}
+
+.fieldnote{font-size:13.5px;line-height:1.6;color:var(--ink-3);background:var(--note-bg);border:1px solid var(--note-line);border-left:3px solid var(--blue);border-radius:14px;padding:14px 18px;margin:24px 0;max-width:90ch}
+.fieldnote b{color:var(--blue)}
+.warning{background:var(--warn-bg);border:1px solid var(--warn-line);border-left:3px solid var(--orange);border-radius:14px;padding:14px 18px;color:var(--warn-ink);margin:22px 0;font-size:13.5px;max-width:90ch}
+.warning b{color:var(--orange-ink)}
+
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:100px;border:1px solid var(--line-strong);background:var(--pill-bg);color:var(--ink-3);cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--ink-dim);color:var(--ink)}
+.chip.active{background:var(--blue);border-color:var(--blue);color:var(--on-accent)}
+.chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+
+.tablewrap{background:var(--glass);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-2);overflow:hidden}
+.table-scroll{overflow:auto}
+table{border-collapse:collapse;width:100%}
+th{position:sticky;top:0;background:var(--surface);z-index:2;text-align:left;font-size:11px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-dim);padding:14px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{vertical-align:top;padding:14px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink-3)}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:700;color:var(--ink)}
+
+pre.term{font-family:var(--mono);font-size:12px;line-height:1.62;background:var(--code-bg);color:var(--code-ink);border:1px solid var(--code-line);border-radius:16px;padding:16px 18px;overflow:auto;margin:14px 0 0;white-space:pre}
+pre.term .c{color:var(--code-c)} pre.term .k{color:var(--code-k)}
+pre.term .g{color:var(--code-g)} pre.term .r{color:var(--code-r)} pre.term .y{color:var(--code-y)}
+pre.light{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code-light-bg);color:var(--code-light-ink);border:1px solid var(--line);border-radius:14px;padding:14px 16px;overflow:auto;margin:12px 0 0;white-space:pre}
+
+/* accordion */
+.fam{background:var(--surface);border:1px solid var(--line-solid);border-radius:18px;overflow:hidden;margin-bottom:10px;transition:border-color .18s}
+.fam.open{border-color:var(--line-strong);box-shadow:var(--shadow-2)}
+.fam-head{display:grid;grid-template-columns:46px 1fr auto;gap:16px;align-items:center;padding:20px 22px;cursor:pointer;width:100%;text-align:left;background:none;border:none;color:var(--ink);font:inherit}
+.fam-dot{width:40px;height:40px;border-radius:9px;display:grid;place-items:center;font-family:var(--serif);font-size:19px;color:var(--on-accent);background:var(--blue);font-weight:700}
+.fam-title{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.fam-sub{font-family:var(--mono);font-size:11px;color:var(--ink-dim);margin-top:3px}
+.fam-toggle{font-family:var(--mono);font-size:20px;color:var(--ink-dim);transition:transform .2s}
+.fam.open .fam-toggle{transform:rotate(45deg)}
+.fam-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;border-top:1px solid transparent}
+.fam.open .fam-body{grid-template-rows:1fr;border-top-color:var(--line-solid)}
+.fam-body>div{overflow:hidden}
+.fam-inner{padding:18px 22px 22px;color:var(--ink-3);font-size:14.5px;line-height:1.6}
+
+/* ============================ footer ============================ */
+.footer{padding:34px 0 60px;color:var(--ink-dim);font-size:13px;border-top:1px solid var(--line);margin-top:40px}
+.footer a{color:var(--blue)}
+.verstamp{font-family:var(--mono);font-size:11.5px;color:var(--ink-dim);line-height:1.6}
+
+@media(max-width:960px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .navlinks{display:none}
+  .menubtn{display:flex}
+  .contact-strip-inner{padding:7px 14px;justify-content:center;gap:6px}
+  .contact-link,.themetoggle{flex:1;justify-content:center;max-width:130px;padding:7px 8px;font-size:11px}
+  .hero{min-height:auto;padding:36px 0}
+  .section{padding:48px 0}
+}
+
+
+/* ==================== additions: style coding ==================== */
+.s-secure{--sc:var(--green); --sc-soft:var(--green-soft)}
+.s-anxious{--sc:var(--orange); --sc-soft:var(--orange-soft)}
+.s-dismissive{--sc:var(--blue); --sc-soft:var(--blue-soft)}
+.s-fearful{--sc:var(--purple); --sc-soft:var(--purple-soft)}
+
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--sc);margin-right:9px;vertical-align:middle;flex:0 0 auto}
+
+/* ==================== spectrum ==================== */
+.figure{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-2);padding:22px 24px;margin:26px 0 0}
+.figure figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px}
+.figure svg{display:block;width:100%;height:auto}
+.svg-label{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink-dim)}
+.svg-title{font-family:var(--serif);font-size:17px;font-weight:700;fill:var(--ink)}
+.svg-body{font-family:var(--sans);font-size:12.5px;fill:var(--ink-3)}
+.svg-line{stroke:var(--line-strong);fill:none}
+.svg-dash{stroke:var(--ink-dim);stroke-dasharray:4 5;fill:none}
+.spectrum-bar{stroke:var(--line);fill:url(#specgrad)}
+.stop-1{stop-color:var(--surface-3)}
+.stop-2{stop-color:var(--blue-soft)}
+.stop-3{stop-color:var(--purple-soft)}
+.marker{fill:var(--ink)}
+.marker-ring{fill:none;stroke:var(--ink-dim)}
+
+/* ==================== quadrant map ==================== */
+.mapwrap{display:grid;grid-template-columns:1.02fr .98fr;gap:16px;align-items:stretch;margin-bottom:26px}
+.mapcard{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-2);padding:20px 22px}
+.quad{display:block;width:100%;height:auto}
+.qzone{cursor:pointer}
+.qzone rect{fill:var(--sc-soft);stroke:var(--line-solid);stroke-width:1;transition:opacity .18s ease}
+.qzone .qname{font-family:var(--serif);font-size:19px;font-weight:700;fill:var(--ink)}
+.qzone .qsub{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;fill:var(--ink-dim)}
+.qzone .qdot{fill:var(--sc)}
+.qzone.off{opacity:.3}
+.qzone.on rect{stroke:var(--sc);stroke-width:2.5}
+.qaxis{stroke:var(--line-strong);fill:none;stroke-width:1.5}
+.qarrow{fill:var(--ink-dim)}
+
+.legend{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.legend button{display:flex;align-items:center;gap:0;width:100%;text-align:left;background:var(--pill-bg);border:1px solid var(--line);border-radius:14px;padding:11px 13px;cursor:pointer;color:var(--ink);font:inherit;font-size:14px;transition:.15s}
+.legend button:hover{border-color:var(--ink-dim)}
+.legend button.on{border-color:var(--sc);background:var(--sc-soft)}
+.legend .lname{font-weight:700;letter-spacing:-.02em}
+.legend .lnote{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);white-space:nowrap}
+
+/* ==================== pattern cards ==================== */
+.controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.chiprow{margin-bottom:0}
+.chip .dot{width:8px;height:8px;margin-right:7px}
+.chip.active{background:var(--sc,var(--blue));border-color:var(--sc,var(--blue));color:var(--on-accent)}
+.chip.active .dot{background:var(--on-accent)}
+.viewswitch{display:flex;gap:8px}
+
+.pcard{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--line);border-radius:24px;padding:20px 22px 8px 24px;box-shadow:var(--shadow-2);transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease,border-color .18s ease}
+.pcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--sc)}
+.pcard:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.pcard.on{border-color:var(--sc);box-shadow:var(--shadow-hover)}
+.pcard.dim,tr.dim{opacity:.32}
+.pcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.pcard h3{font-family:var(--serif);font-size:23px;letter-spacing:-.035em;margin:0;color:var(--ink)}
+.pcard h3 span{color:var(--ink-dim);font-size:.66em;font-weight:500}
+.pcard .coord{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:6px}
+.facts{margin:0;display:grid}
+.fact{display:grid;grid-template-columns:7.6rem 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line)}
+.fact dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);margin-top:2px}
+.fact dd{margin:0;color:var(--ink-3);font-size:14px;line-height:1.5}
+
+td .rowname{display:flex;align-items:center}
+
+/* ==================== family diagram ==================== */
+.fnode{fill:var(--surface-3);stroke:var(--line-solid)}
+.fnode-accent{fill:var(--sc-soft);stroke:var(--sc)}
+.fbracket{fill:none;stroke:var(--line-strong);stroke-dasharray:3 5}
+
+@media(max-width:960px){
+  .mapwrap{grid-template-columns:1fr}
+  .fact{grid-template-columns:1fr;gap:2px}
+  .controls{flex-direction:column;align-items:stretch}
+  .viewswitch{justify-content:flex-start}
+}
+
+@media print{
+  .topbar,.controls{display:none}
+  .view-panel[hidden]{display:block!important}
+  .pcard.dim,tr.dim,.qzone.off{opacity:1}
+  .pcard{break-inside:avoid}
+}
+[hidden]{display:none!important}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="contact-strip">
+    <div class="contact-strip-inner">
+      <a class="contact-link" href="mailto:ponelson@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+        <span>Email</span>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/ponelson/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V19h3.38V8.5ZM5.25 3A1.96 1.96 0 1 0 5.25 6.92 1.96 1.96 0 0 0 5.25 3ZM20.44 13.08c0-3.16-1.68-4.63-3.93-4.63-1.81 0-2.62.99-3.08 1.69V8.5h-3.38V19h3.38v-5.2c0-1.37.26-2.7 1.96-2.7 1.68 0 1.7 1.57 1.7 2.79V19h3.38l-.03-5.92Z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a class="contact-link" href="https://ponelson.github.io/pon/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.34.9 11.6c0 4.9 3.17 9.06 7.57 10.53.55.1.75-.24.75-.53v-1.86c-3.08.67-3.73-1.49-3.73-1.49-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.49 0-1.21.43-2.2 1.14-2.98-.11-.28-.5-1.41.11-2.94 0 0 .93-.3 3.05 1.14.88-.25 1.83-.37 2.77-.37.94 0 1.89.13 2.78.37 2.11-1.44 3.04-1.14 3.04-1.14.61 1.53.22 2.66.11 2.94.71.78 1.14 1.77 1.14 2.98 0 4.27-2.6 5.21-5.07 5.48.4.35.76 1.03.76 2.08v3.08c0 .3.2.64.76.53 4.39-1.47 7.56-5.63 7.56-10.53C23.1 5.34 18.27.5 12 .5Z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="themetoggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle light or dark theme">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13.5a1 1 0 0 1 1 1V6a1 1 0 1 1-2 0V4.5a1 1 0 0 1 1-1Zm0 15a1 1 0 0 1 1 1V21a1 1 0 1 1-2 0v-1.5a1 1 0 0 1 1-1ZM3.5 12a1 1 0 0 1 1-1H6a1 1 0 1 1 0 2H4.5a1 1 0 0 1-1-1Zm14.5 0a1 1 0 0 1 1-1h1.5a1 1 0 1 1 0 2H19a1 1 0 0 1-1-1ZM5.6 5.6a1 1 0 0 1 1.4 0l1.1 1.1a1 1 0 0 1-1.4 1.4L5.6 7a1 1 0 0 1 0-1.4Zm10.3 10.3a1 1 0 0 1 1.4 0l1.1 1.1a1 1 0 0 1-1.4 1.4l-1.1-1.1a1 1 0 0 1 0-1.4Zm2.5-10.3a1 1 0 0 1 0 1.4L17.3 8.1a1 1 0 1 1-1.4-1.4L17 5.6a1 1 0 0 1 1.4 0ZM8.1 15.9a1 1 0 0 1 0 1.4L7 18.4A1 1 0 0 1 5.6 17l1.1-1.1a1 1 0 0 1 1.4 0Z"/></svg>
+        <span id="themeLabel">Dark</span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span>Attachment Styles</span><span class="vtag">v3.0</span></div>
+      <div class="navlinks" id="navlinks"></div>
+      <button class="menubtn" id="menubtn" type="button" aria-label="Menu"><i></i><i></i><i></i></button>
+    </div>
+    <div class="drawer" id="drawer"></div>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap">
+    <div class="eyebrow">Reference &nbsp;/&nbsp; <b>v3.0</b> &nbsp;&middot;&nbsp; 13 September 2026, 9:56 AM ET &nbsp;&middot;&nbsp; <span class="mono">build 2026-09-13T09:56-04:00</span></div>
+    <h1 class="h1">How closeness begins to feel <em>like family</em></h1>
+    <p class="lede">Attachment style is less about attraction than about your relationship to intimacy: the sensation of another person becoming emotionally consequential, familiar, and lasting. The pattern stays quiet in early dating or ordinary friendship, and becomes legible as a bond starts to feel permanent.</p>
+    <div class="meta" style="margin-top:22px">
+      <span class="tag green">Secure</span>
+      <span class="tag orange">Anxious&ndash;Preoccupied</span>
+      <span class="tag blue">Dismissive&ndash;Avoidant</span>
+      <span class="tag purple">Fearful&ndash;Avoidant</span>
+    </div>
+    <div class="hero-actions">
+      <a class="cta" href="#patterns">Open the map</a>
+      <a class="cta secondary" href="#caveats">How to read this</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="section" id="frame" data-nav="Frame">
+  <div class="wrap">
+    <div class="kicker">01 &nbsp;/&nbsp; The frame</div>
+    <h2>Attachment appears under emotional consequence.</h2>
+    <p class="sub">The same person can look unreadable at week three and unmistakable at year three. Depth is the developer fluid.</p>
+
+    <p style="max-width:78ch">Your attachment style does not necessarily fully manifest in early dating, when the relationship is still provisional, or even among friends. It becomes easier to see when intimacy carries the deeper sensation of someone becoming family.</p>
+
+    <p style="max-width:78ch">This framing is not limited to sex or romance. The useful question is what happens when closeness starts to feel durable: when another person can truly reach you, matter to you, disappoint you, depend on you, or become woven into your sense of home.</p>
+
+    <figure class="figure">
+      <figcaption>Where the pattern becomes visible</figcaption>
+      <svg viewBox="0 0 900 158" role="img" aria-label="A spectrum from early dating through friendship to becoming family; the pattern becomes legible as emotional consequence rises.">
+        <defs>
+          <linearGradient id="specgrad" x1="0" y1="0" x2="1" y2="0">
+            <stop class="stop-1" offset="0"/>
+            <stop class="stop-2" offset="0.58"/>
+            <stop class="stop-3" offset="1"/>
+          </linearGradient>
+        </defs>
+        <text class="svg-label" x="556" y="18" text-anchor="middle">pattern becomes legible</text>
+        <line class="svg-dash" x1="556" y1="26" x2="556" y2="86"/>
+        <rect class="spectrum-bar" x="40" y="42" width="820" height="26" rx="13"/>
+        <circle class="marker-ring" cx="150" cy="55" r="13"/><circle class="marker" cx="150" cy="55" r="6"/>
+        <circle class="marker-ring" cx="390" cy="55" r="13"/><circle class="marker" cx="390" cy="55" r="6"/>
+        <circle class="marker-ring" cx="726" cy="55" r="13"/><circle class="marker" cx="726" cy="55" r="6"/>
+        <text class="svg-body" x="150" y="100" text-anchor="middle">Early dating</text>
+        <text class="svg-label" x="150" y="118" text-anchor="middle">latent</text>
+        <text class="svg-body" x="390" y="100" text-anchor="middle">Ordinary friendship</text>
+        <text class="svg-label" x="390" y="118" text-anchor="middle">latent</text>
+        <text class="svg-body" x="726" y="100" text-anchor="middle">Becoming family</text>
+        <text class="svg-label" x="726" y="118" text-anchor="middle">legible</text>
+        <text class="svg-label" x="40" y="146">less emotional consequence</text>
+        <text class="svg-label" x="860" y="146" text-anchor="end">more</text>
+      </svg>
+    </figure>
+
+    <div class="panel invert" style="margin-top:26px">
+      <h3>The question underneath</h3>
+      <p>The pattern is not simply &ldquo;How do I date?&rdquo; It is &ldquo;What happens inside me when this person begins to feel like family?&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="patterns" data-nav="Patterns">
+  <div class="wrap">
+    <div class="kicker">02 &nbsp;/&nbsp; Core patterns</div>
+    <h2>Four ways safety and closeness organize themselves.</h2>
+    <p class="sub">Each pattern is described on the same four attributes: the caregiving it tends to follow from, and the need, fear, and desire it organizes around. Select a style anywhere &mdash; map, legend, or chip &mdash; and the whole section follows.</p>
+
+    <div class="mapwrap">
+      <div class="mapcard">
+        <svg class="quad" viewBox="0 0 470 410" role="img" aria-label="Two-dimensional map: abandonment anxiety on the vertical axis, avoidance of closeness on the horizontal axis, with the four styles in the four quadrants.">
+          <g class="qzone s-anxious" data-style="anxious" role="button" tabindex="0" aria-label="Anxious–Preoccupied: high anxiety, low avoidance">
+            <rect x="72" y="16" width="184" height="168" rx="14"/>
+            <circle class="qdot" cx="164" cy="72" r="6"/>
+            <text class="qname" x="164" y="106" text-anchor="middle">Anxious</text>
+            <text class="qsub" x="164" y="126" text-anchor="middle">preoccupied</text>
+          </g>
+          <g class="qzone s-fearful" data-style="fearful" role="button" tabindex="0" aria-label="Fearful–Avoidant: high anxiety, high avoidance">
+            <rect x="260" y="16" width="184" height="168" rx="14"/>
+            <circle class="qdot" cx="352" cy="72" r="6"/>
+            <text class="qname" x="352" y="106" text-anchor="middle">Fearful</text>
+            <text class="qsub" x="352" y="126" text-anchor="middle">disorganized</text>
+          </g>
+          <g class="qzone s-secure" data-style="secure" role="button" tabindex="0" aria-label="Secure: low anxiety, low avoidance">
+            <rect x="72" y="190" width="184" height="168" rx="14"/>
+            <circle class="qdot" cx="164" cy="246" r="6"/>
+            <text class="qname" x="164" y="280" text-anchor="middle">Secure</text>
+            <text class="qsub" x="164" y="300" text-anchor="middle">balance</text>
+          </g>
+          <g class="qzone s-dismissive" data-style="dismissive" role="button" tabindex="0" aria-label="Dismissive–Avoidant: low anxiety, high avoidance">
+            <rect x="260" y="190" width="184" height="168" rx="14"/>
+            <circle class="qdot" cx="352" cy="246" r="6"/>
+            <text class="qname" x="352" y="280" text-anchor="middle">Dismissive</text>
+            <text class="qsub" x="352" y="300" text-anchor="middle">avoidant</text>
+          </g>
+
+          <line class="qaxis" x1="44" y1="374" x2="452" y2="374"/>
+          <polygon class="qarrow" points="452,374 442,369 442,379"/>
+          <line class="qaxis" x1="44" y1="374" x2="44" y2="10"/>
+          <polygon class="qarrow" points="44,10 39,20 49,20"/>
+
+          <text class="svg-label" x="248" y="396" text-anchor="middle">avoidance of closeness</text>
+          <text class="svg-label" x="-192" y="26" transform="rotate(-90)" text-anchor="middle">abandonment anxiety</text>
+        </svg>
+      </div>
+
+      <div class="mapcard">
+        <h3 class="sub-h" style="margin-top:0">Two dimensions, four corners</h3>
+        <p style="font-size:14.5px">The four names are corners of the same two questions: how much does distance frighten you, and how much does closeness. Low on both is secure. High on one is anxious or dismissive. High on both is the fearful pattern, which is why it reads as contradictory from the outside.</p>
+        <ul class="legend">
+          <li><button type="button" class="s-secure" data-style="secure"><span class="dot"></span><span class="lname">Secure</span><span class="lnote">low &middot; low</span></button></li>
+          <li><button type="button" class="s-anxious" data-style="anxious"><span class="dot"></span><span class="lname">Anxious&ndash;Preoccupied</span><span class="lnote">high &middot; low</span></button></li>
+          <li><button type="button" class="s-dismissive" data-style="dismissive"><span class="dot"></span><span class="lname">Dismissive&ndash;Avoidant</span><span class="lnote">low &middot; high</span></button></li>
+          <li><button type="button" class="s-fearful" data-style="fearful"><span class="dot"></span><span class="lname">Fearful&ndash;Avoidant</span><span class="lnote">high &middot; high</span></button></li>
+        </ul>
+        <div class="fieldnote" style="margin:16px 0 0"><b>Note.</b> The two-axis map is standard attachment framing, added here to place the four names in relation to each other. The attribute rows below are the source material.</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="chiprow" role="group" aria-label="Select an attachment style">
+        <button class="chip active" type="button" data-style="all" aria-pressed="true">All four</button>
+        <button class="chip s-secure" type="button" data-style="secure" aria-pressed="false"><span class="dot"></span>Secure</button>
+        <button class="chip s-anxious" type="button" data-style="anxious" aria-pressed="false"><span class="dot"></span>Anxious</button>
+        <button class="chip s-dismissive" type="button" data-style="dismissive" aria-pressed="false"><span class="dot"></span>Dismissive</button>
+        <button class="chip s-fearful" type="button" data-style="fearful" aria-pressed="false"><span class="dot"></span>Fearful</button>
+      </div>
+      <div class="viewswitch" role="group" aria-label="Choose a layout">
+        <button class="chip active" type="button" data-view="cards" aria-pressed="true">Cards</button>
+        <button class="chip" type="button" data-view="table" aria-pressed="false">Table</button>
+      </div>
+    </div>
+
+    <div class="grid g2 view-panel" id="viewCards">
+      <article class="pcard s-secure" data-style="secure">
+        <div class="pcard-top">
+          <h3>Secure</h3>
+          <span class="tag green">Balance</span>
+        </div>
+        <div class="coord">low avoidance &middot; low anxiety</div>
+        <dl class="facts">
+          <div class="fact"><dt>Parenting roots</dt><dd>Consistently responsive, warm, attuned caregiving</dd></div>
+          <div class="fact"><dt>Core need</dt><dd>Trustworthy emotional connection; a balance of closeness and independence</dd></div>
+          <div class="fact"><dt>Core fear</dt><dd>Betrayal and unpredictability</dd></div>
+          <div class="fact"><dt>Core desire</dt><dd>Safe, mutual intimacy with freedom</dd></div>
+        </dl>
+      </article>
+
+      <article class="pcard s-anxious" data-style="anxious">
+        <div class="pcard-top">
+          <h3>Anxious <span>&ndash; Preoccupied</span></h3>
+          <span class="tag orange">Reassurance</span>
+        </div>
+        <div class="coord">low avoidance &middot; high anxiety</div>
+        <dl class="facts">
+          <div class="fact"><dt>Parenting roots</dt><dd>Inconsistent caregiving &mdash; sometimes available, sometimes not</dd></div>
+          <div class="fact"><dt>Core need</dt><dd>Reassurance, consistency, and validation</dd></div>
+          <div class="fact"><dt>Core fear</dt><dd>Abandonment and rejection</dd></div>
+          <div class="fact"><dt>Core desire</dt><dd>Constant closeness and proof of love</dd></div>
+        </dl>
+      </article>
+
+      <article class="pcard s-dismissive" data-style="dismissive">
+        <div class="pcard-top">
+          <h3>Dismissive <span>&ndash; Avoidant</span></h3>
+          <span class="tag blue">Autonomy</span>
+        </div>
+        <div class="coord">high avoidance &middot; low anxiety</div>
+        <dl class="facts">
+          <div class="fact"><dt>Parenting roots</dt><dd>Caregivers dismiss or discourage emotional expression and emphasize independence</dd></div>
+          <div class="fact"><dt>Core need</dt><dd>Respect for autonomy and low-pressure closeness</dd></div>
+          <div class="fact"><dt>Core fear</dt><dd>Losing independence or being engulfed</dd></div>
+          <div class="fact"><dt>Core desire</dt><dd>Freedom with optional, low-intensity connection</dd></div>
+        </dl>
+      </article>
+
+      <article class="pcard s-fearful" data-style="fearful">
+        <div class="pcard-top">
+          <h3>Fearful <span>&ndash; Avoidant (Disorganized)</span></h3>
+          <span class="tag purple">Safety</span>
+        </div>
+        <div class="coord">high avoidance &middot; high anxiety</div>
+        <dl class="facts">
+          <div class="fact"><dt>Parenting roots</dt><dd>A caregiver is both a source of comfort and fear, often amid abuse, neglect, or chaos</dd></div>
+          <div class="fact"><dt>Core need</dt><dd>Safety in intimacy and gentle stability</dd></div>
+          <div class="fact"><dt>Core fear</dt><dd>Both abandonment and engulfment</dd></div>
+          <div class="fact"><dt>Core desire</dt><dd>Secure closeness that doesn&rsquo;t feel threatening</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="tablewrap view-panel" id="viewTable" hidden>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Style</th><th>Parenting roots</th><th>Core need</th><th>Core fear</th><th>Core desire</th></tr>
+          </thead>
+          <tbody>
+            <tr class="s-secure" data-style="secure">
+              <td><span class="rowname"><span class="dot"></span>Secure</span></td>
+              <td>Consistently responsive, warm, attuned caregiving</td>
+              <td>Trustworthy emotional connection; closeness and independence</td>
+              <td>Betrayal and unpredictability</td>
+              <td>Safe, mutual intimacy with freedom</td>
+            </tr>
+            <tr class="s-anxious" data-style="anxious">
+              <td><span class="rowname"><span class="dot"></span>Anxious&ndash;Preoccupied</span></td>
+              <td>Inconsistent caregiving</td>
+              <td>Reassurance, consistency, and validation</td>
+              <td>Abandonment and rejection</td>
+              <td>Constant closeness and proof of love</td>
+            </tr>
+            <tr class="s-dismissive" data-style="dismissive">
+              <td><span class="rowname"><span class="dot"></span>Dismissive&ndash;Avoidant</span></td>
+              <td>Emotional expression dismissed; independence emphasized</td>
+              <td>Autonomy and low-pressure closeness</td>
+              <td>Engulfment or lost independence</td>
+              <td>Freedom with optional, low-intensity connection</td>
+            </tr>
+            <tr class="s-fearful" data-style="fearful">
+              <td><span class="rowname"><span class="dot"></span>Fearful&ndash;Avoidant</span></td>
+              <td>Caregiver is both comfort and a source of fear</td>
+              <td>Safety in intimacy and gentle stability</td>
+              <td>Abandonment and engulfment</td>
+              <td>Secure closeness that feels nonthreatening</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="family" data-nav="Family">
+  <div class="wrap">
+    <div class="kicker">03 &nbsp;/&nbsp; Family differences</div>
+    <h2>Shared genes do not guarantee a shared experience.</h2>
+    <p class="sub">The input is not the household. It is the caregiving a particular child actually received.</p>
+
+    <figure class="figure">
+      <figcaption>Same house, two inputs</figcaption>
+      <svg viewBox="0 0 900 290" role="img" aria-label="Two children in one household: similar caregiving experience produces the same pattern, divergent caregiving produces different patterns.">
+        <rect class="fbracket" x="18" y="24" width="200" height="244" rx="20"/>
+        <text class="svg-label" x="118" y="52" text-anchor="middle">one household</text>
+        <circle class="fnode" cx="118" cy="122" r="38"/>
+        <text class="svg-body" x="118" y="127" text-anchor="middle">Child A</text>
+        <circle class="fnode" cx="118" cy="222" r="38"/>
+        <text class="svg-body" x="118" y="227" text-anchor="middle">Child B</text>
+
+        <line class="svg-line" x1="228" y1="122" x2="316" y2="122"/>
+        <polygon class="qarrow" points="326,122 314,116 314,128"/>
+        <rect class="fnode" x="336" y="92" width="232" height="60" rx="16"/>
+        <text class="svg-body" x="452" y="117" text-anchor="middle">Caregiving experienced</text>
+        <text class="svg-label" x="452" y="136" text-anchor="middle">broadly similar</text>
+        <line class="svg-line" x1="578" y1="122" x2="628" y2="122"/>
+        <polygon class="qarrow" points="638,122 626,116 626,128"/>
+        <rect class="fnode-accent s-secure" x="648" y="92" width="232" height="60" rx="16"/>
+        <text class="svg-body" x="764" y="117" text-anchor="middle">Same attachment style</text>
+        <text class="svg-label" x="764" y="136" text-anchor="middle">despite different temperaments</text>
+
+        <line class="svg-line" x1="228" y1="222" x2="316" y2="222"/>
+        <polygon class="qarrow" points="326,222 314,216 314,228"/>
+        <rect class="fnode" x="336" y="192" width="232" height="60" rx="16"/>
+        <text class="svg-body" x="452" y="217" text-anchor="middle">Caregiving experienced</text>
+        <text class="svg-label" x="452" y="236" text-anchor="middle">diverges</text>
+        <line class="svg-line" x1="578" y1="222" x2="628" y2="222"/>
+        <polygon class="qarrow" points="638,222 626,216 626,228"/>
+        <rect class="fnode-accent s-dismissive" x="648" y="192" width="232" height="60" rx="16"/>
+        <text class="svg-body" x="764" y="217" text-anchor="middle">Different attachment styles</text>
+        <text class="svg-label" x="764" y="236" text-anchor="middle">including in twins</text>
+      </svg>
+    </figure>
+
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card">
+        <div class="meta"><span class="tag green">Case one</span></div>
+        <h3>Different siblings can share an attachment style.</h3>
+        <p>Siblings may be wildly different in temperament, interests, or behavior yet develop the same attachment style when their caregiving experiences are sufficiently similar.</p>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="tag blue">Case two</span></div>
+        <h3>Twins can develop different attachment styles.</h3>
+        <p>Even twins can organize intimacy differently when parenting diverges, because each child&rsquo;s pattern reflects the caregiving that child experienced.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="caveats" data-nav="Caveats">
+  <div class="wrap">
+    <div class="kicker">04 &nbsp;/&nbsp; How to read this</div>
+    <h2>Descriptive patterns, not diagnostic categories.</h2>
+
+    <p style="max-width:78ch">The four styles are a vocabulary for describing how someone tends to handle closeness. They are not clinical diagnoses, they are not fixed traits, and few people sit cleanly inside one corner of the map. The same person can read differently in different relationships, and at different points inside a single one.</p>
+
+    <p style="max-width:78ch">The attribute rows are the strongest use of the frame. They give you language for what a reaction is protecting, which is more useful than the label on the box.</p>
+
+    <div class="warning"><b>Scope.</b> This page organizes ideas supplied in the source conversation. The emotional-consequence framing, the two-axis map, and this section are editorial additions rather than further clinical claims, and none of it substitutes for working through any of it with a qualified professional.</div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>A compact reference for intimacy, family, and core patterns.</p>
+    <p class="verstamp">Attachment Styles &mdash; v3.0 &middot; build 2026-09-13T09:56-04:00 &middot; supersedes v2.0 (13 September 2026, 9:42 AM ET). Changes in v3: rebuilt on the house template &mdash; glass chrome, orbs, gradient headline, self-building nav with mobile drawer; added the two-axis quadrant map, the visibility spectrum, and the household diagram; style color-coding now runs across map, chips, cards, and table rows from a single selection.</p>
+    <p style="margin-top:8px">Contact: <a href="mailto:ponelson@gmail.com">ponelson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/ponelson/">LinkedIn</a> &middot; <a href="https://ponelson.github.io/pon/">GitHub</a></p>
+  </div>
+</footer>
+
+<script>
+/* ---------------- theme ---------------- */
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeToggle'),
+      lbl=document.getElementById('themeLabel'), meta=document.getElementById('themeColorMeta');
+  function read(){ try{return localStorage.getItem('attachment-theme');}catch(e){return null;} }
+  function write(v){ try{localStorage.setItem('attachment-theme',v);}catch(e){} }
+  function apply(t){
+    root.setAttribute('data-theme',t);
+    if(lbl) lbl.textContent = (t==='dark'?'Light':'Dark');
+    if(btn) btn.setAttribute('aria-pressed', t==='dark' ? 'true':'false');
+    if(meta) meta.setAttribute('content', t==='dark' ? '#0d0d10' : '#f5f5f7');
+  }
+  var saved=read();
+  var initial = saved || ((window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark':'light');
+  apply(initial);
+  if(btn) btn.addEventListener('click',function(){
+    var next = root.getAttribute('data-theme')==='dark' ? 'light':'dark';
+    apply(next); write(next);
+  });
+  try{
+    var q = matchMedia('(prefers-color-scheme: dark)');
+    var follow = function(e){ if(!read()) apply(e.matches?'dark':'light'); };
+    if(q.addEventListener) q.addEventListener('change',follow);
+    else if(q.addListener) q.addListener(follow);
+  }catch(e){}
+})();
+
+/* ---------------- nav from sections ---------------- */
+(function(){
+  var secs=[].slice.call(document.querySelectorAll('section.section[data-nav]'));
+  var nl=document.getElementById('navlinks'), dr=document.getElementById('drawer'), mb=document.getElementById('menubtn');
+  secs.forEach(function(s){
+    [nl,dr].forEach(function(h){
+      if(!h)return;
+      var a=document.createElement('a');
+      a.href='#'+s.id; a.textContent=s.dataset.nav;
+      h.appendChild(a);
+    });
+  });
+  if(mb&&dr) mb.addEventListener('click',function(){dr.classList.toggle('open');});
+  if(dr) dr.addEventListener('click',function(e){if(e.target.tagName==='A')dr.classList.remove('open');});
+  try{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting)return;
+        [].forEach.call(document.querySelectorAll('#navlinks a'),function(a){
+          a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id);
+        });
+      });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(function(s){io.observe(s);});
+  }catch(e){}
+})();
+
+/* ---------------- style selection ---------------- */
+(function(){
+  var current='all';
+  var chips=[].slice.call(document.querySelectorAll('.chiprow .chip'));
+  var legend=[].slice.call(document.querySelectorAll('.legend button'));
+  var zones=[].slice.call(document.querySelectorAll('.qzone'));
+  var targets=[].slice.call(document.querySelectorAll('.pcard, tbody tr'));
+
+  function select(style){
+    current = (style===current && style!=='all') ? 'all' : style;
+    var all = current==='all';
+
+    chips.forEach(function(c){
+      var on = c.dataset.style===current;
+      c.classList.toggle('active', on);
+      c.setAttribute('aria-pressed', on?'true':'false');
+    });
+    legend.forEach(function(b){
+      b.classList.toggle('on', !all && b.dataset.style===current);
+    });
+    zones.forEach(function(z){
+      var on = z.dataset.style===current;
+      z.classList.toggle('on', !all && on);
+      z.classList.toggle('off', !all && !on);
+    });
+    targets.forEach(function(t){
+      var on = t.dataset.style===current;
+      t.classList.toggle('on', !all && on);
+      t.classList.toggle('dim', !all && !on);
+    });
+  }
+
+  chips.forEach(function(c){ c.addEventListener('click',function(){ select(c.dataset.style); }); });
+  legend.forEach(function(b){ b.addEventListener('click',function(){ select(b.dataset.style); }); });
+  zones.forEach(function(z){
+    z.addEventListener('click',function(){ select(z.dataset.style); });
+    z.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); select(z.dataset.style); }
+    });
+  });
+})();
+
+/* ---------------- view switch ---------------- */
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.viewswitch .chip'));
+  var cards=document.getElementById('viewCards'), table=document.getElementById('viewTable');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.dataset.view;
+      btns.forEach(function(x){
+        var on=x===b;
+        x.classList.toggle('active',on);
+        x.setAttribute('aria-pressed',on?'true':'false');
+      });
+      if(cards) cards.hidden = v!=='cards';
+      if(table) table.hidden = v!=='table';
+    });
+  });
+})();
+</script>
+</body>
+</html>
